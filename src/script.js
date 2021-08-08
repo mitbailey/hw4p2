@@ -9,6 +9,68 @@
  * @copyright Copyright (c) 2021
  */
 
+ $('.dynamic-table-form-set').validate({
+    debug: false,
+    rules: {
+        val1: {
+            required: true,
+            min: -64,
+            max: 64,
+        },
+        val2: {
+            required: true,
+            min: -64,
+            max: 64,
+        },
+        val3: {
+            required: true,
+            min: -64,
+            max: 64,
+        },
+        val4: {
+            required: true,
+            min: -64,
+            max: 64,
+        },
+    },
+    messages: {
+        val1: {
+            required: "Enter a value.",
+            min: "Value too low (-64 to 64).",
+            max: "Value too high (-64 to 64).",
+        },
+        val2: {
+            required: "Enter a value.",
+            min: "Value too low (-64 to 64).",
+            max: "Value too high (-64 to 64).",
+        },
+        val3: {
+            required: "Enter a value.",
+            min: "Value too low (-64 to 64).",
+            max: "Value too high (-64 to 64).",
+        },
+        val4: {
+            required: "Enter a value.",
+            min: "Value too low (-64 to 64).",
+            max: "Value too high (-64 to 64).",
+        },
+    },
+    errorPlacement: function(error, element) {
+        error.insertBefore(element);
+    },
+    errorClass: "invalid",
+    validClass: "valid",
+    errorElement: "samp",
+    errorLabel: "error_label",
+    invalidHandler: function (form) {
+        console.log("Invalid handler.");
+    },
+    submitHandler: function (form) {
+        console.log("Submitted!");
+        submitFormValuesNoValidation();
+    }
+});
+
 // Toggle navbar visibility.
 function collapseNavbar() {
     var sideNavbar = document.getElementById("side_navbar");
