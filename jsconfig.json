@@ -1,0 +1,9 @@
+{
+    "typeAcquisition": {
+        "include": [
+            "scripts/jquery-3.6.0.min.js",
+            "scripts/jquery.validate.js",
+        ]
+    }
+
+}
