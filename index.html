@@ -23,9 +23,7 @@
     <title>mitbailey.com</title>
     <link rel="shortcut icon" href=" images/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
-    <!-- <script src="scripts/jquery-3.6.0.min.js"></script> -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-    <!-- <script src="src/script.js"></script> -->
+    <link rel="stylesheet" href="css/jquery-ui.css">
 </head>
 
 <!-- Page Content -->
@@ -78,42 +76,56 @@
                 <!-- The input box itself. -->
                 <input type="number" id="val1" name="val1"><br>
 
-                <!-- An area to programmatically display an error message, or user input. -->
-                <code id="val1text"></code>
+                <!-- The jQuery UI slider. -->
+                <div class="value_slider" id="val1_slider"></div>
             </div>
             <div class="dynamic-table-form">
                 <label for="val2">End (x-axis):</label><br>
-                <input type="number" id="val2" name="val2"><br>
-                <code id="val2text"></code>
+                <input type="number" id="val2" name="val2""><br>
+                <div class="value_slider" id="val2_slider"></div>
             </div>
             <div class="dynamic-table-form">
                 <label for="val3">Start (y-axis):</label><br>
                 <input type="number" id="val3" name="val3"><br>
-                <code id="val3text"></code>
+                <div class="value_slider" id="val3_slider"></div>
             </div>
             <div class="dynamic-table-form">
                 <label for="val4">End (y-axis):</label><br>
                 <input type="number" id="val4" name="val4"><br>
-                <code id="val4text"></code>
+                <div class="value_slider" id="val4_slider"></div>
             </div>
             <div class="form-button-holder">
-                <!-- A button which calls submitFormValues(), to populate the table. -->
+                <!-- A button which calls validates and submits the form to populate the table. -->
                 <input type="submit" value="SUBMIT" class="form-button" id="submit-form">
 
-                <!-- <button type="submit" onclick="submitFormValues()" class="form-button" id="submit-form">
-                    SUBMIT
-                </button> -->
-
                 <!-- A button which calls clearTable(), for clearing the table. -->
-                <button type="button" onclick="clearTable()" class="form-button" id="clear-table">
+                <button type="button" onclick="clearAll()" class="form-button" id="clear-table">
                     CLEAR
                 </button>
+
+                <!-- Button for adding tabs / saving tables. -->
+                <button type="button" onclick="saveTable()" class="form-button" id="clear-table">
+                    SAVE
+                </button>
+
+                <!-- Deletes all the saves. -->
+                <button type="button" onclick="clearSavedTables()" class="form-button" id="clear-table">
+                    DELETE ALL
+                </button>
             </div>
+
+            <div id="append_test">
+
+            </div>
+
         </form>
 
         <!-- Multiple divs help with CSS formatting. -->
-        <div class="dynamic-table-holder">
-            <div class="dynamic-table">
+        <div class="dynamic-table-holder" id="save_tabs">
+            <ul id="save_tabs_list">
+                <li><a href="#main-tab">Main</a></li>
+            </ul>
+            <div class="dynamic-table" id="main-tab">
                 <!-- An empty table object which will be manipulated by the JS code. -->
                 <table id="mult-table"></table>
             </div>
@@ -127,6 +139,7 @@
     </div>
 
     <script src="scripts/jquery-3.6.0.min.js"></script>
+    <script src="scripts/jquery-ui.min.js"></script>
     <script src="scripts/jquery.validate.js"></script>
     <script src="src/script.js"></script>
 </body>

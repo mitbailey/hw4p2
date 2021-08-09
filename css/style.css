@@ -329,6 +329,13 @@ samp.invalid {
     font-style: italic;
 }
 
+/* ASSIGNMENT 4p2 */
+
+/* Overrides sliders' default stylings. */
+.value_slider {
+    width: 147px;
+}
+
 /* GENERIC CONTAINERS */
 /* ****************** */
 /* These are useful for repeated use. */

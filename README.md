@@ -1,3 +1,16 @@
+## Homework Assignment 4 Part 2
+
+
+
+### References
+https://www.w3schools.com/
+https://api.jqueryui.com/
+https://jqueryvalidation.org/
+
+
+
+
+
 ## Homework Assignment 3  
   
 The file can be found at  
