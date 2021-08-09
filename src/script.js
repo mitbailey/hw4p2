@@ -29,9 +29,13 @@ function saveTable() {
         return;
     }
 
+    // A button which, when pressed, deletes the tab its currently on.
+    var sq = "'"; // This is needed because \" nor \' doesn't exist.
+    var close_button = '<button type="button" onclick="clearSavedTable('+sq+tab_name+sq+')" class="form-button" id="clear-table">DELETE</button>';
+
     // Appends HTML to create a new tab. This is unfortunately how it has to be done, since they removed the .add() function from the jQuery UI plugin.
-    $("#save_tabs_list").append("<li><a href='#" + tab_name + "'>" + tab_name + "</a></li>");
-    $("#save_tabs").append("<div class='dynamic-table' id ='" + tab_name + "'><table id='mult-table_" + tab_name + "'></table></div>");
+    $("#save_tabs_list").append("<li id='li-" + tab_name + "'><a href='#" + tab_name + "'>" + tab_name + "</a></li>");
+    $("#save_tabs").append("<div class='dynamic-table' id ='" + tab_name + "'>" + close_button + "<table id='mult-table_" + tab_name + "'></table></div>");
 
     // Refresh so its drawn properly (jQuery UI adds a bunch of classes).
     $("#save_tabs").tabs("refresh");
@@ -137,6 +141,23 @@ function saveTable() {
     }
 
 
+}
+
+/**
+ * @brief Removes the tab with the passed name.
+ * 
+ * Used by the "DELETE" button. Deletes the current tab the button is on by being passed the tab's name. This is done
+ * when the button is created, since its done programmatically.
+ * 
+ */
+function clearSavedTable(tab_name) {
+    console.log("Trying to remove: " + "#li-" + tab_name + " and " + "#" + tab_name);
+    // $("#li-" + tab_name)[0].remove();
+    // $("#" + tab_name)[0].remove();
+    document.getElementById("li-" + tab_name).remove();
+    document.getElementById(tab_name).remove();
+
+    $("#save_tabs").tabs("refresh");
 }
 
 /**
